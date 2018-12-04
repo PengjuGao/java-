@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.platform.core.dao.TbArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.platform.core.po.TbArticle" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="second_title" property="secondTitle" jdbcType="VARCHAR" />
+    <result column="date_time" property="dateTime" jdbcType="TIMESTAMP" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="old_url" property="oldUrl" jdbcType="VARCHAR" />
+    <result column="new_url" property="newUrl" jdbcType="VARCHAR" />
+    <result column="web_name" property="webName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, second_title, date_time, author, old_url, new_url, web_name, create_time, 
+    update_time, `status`, category_id, keyword
+  </sql>
+  <sql id="Vo_Where_Clause" >
+    <where >
+      <foreach collection="vo.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Vo_Where_Clause" >
+    <where >
+      <foreach collection="vo.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <select id="selectByVo" resultMap="BaseResultMap" parameterType="com.platform.core.vo.TbArticleVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_article
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <select id="selectByVoAndPage" resultMap="BaseResultMap" parameterType="com.platform.core.vo.TbArticleVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_article
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByVo" parameterType="com.platform.core.vo.TbArticleVo" >
+    delete from tb_article
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByVo" parameterType="com.platform.core.vo.TbArticleVo" resultType="java.lang.Integer" >
+    select count(*) from tb_article
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByVoSelective" parameterType="map" >
+    update tb_article
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.secondTitle != null" >
+        second_title = #{record.secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dateTime != null" >
+        date_time = #{record.dateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.author != null" >
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oldUrl != null" >
+        old_url = #{record.oldUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newUrl != null" >
+        new_url = #{record.newUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.webName != null" >
+        web_name = #{record.webName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        `status` = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.categoryId != null" >
+        category_id = #{record.categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.keyword != null" >
+        keyword = #{record.keyword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="vo !=  null" >
+      <include refid="Update_By_Vo_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByVo" parameterType="map" >
+    update tb_article
+    set id = #{record.id,jdbcType=BIGINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      second_title = #{record.secondTitle,jdbcType=VARCHAR},
+      date_time = #{record.dateTime,jdbcType=TIMESTAMP},
+      author = #{record.author,jdbcType=VARCHAR},
+      old_url = #{record.oldUrl,jdbcType=VARCHAR},
+      new_url = #{record.newUrl,jdbcType=VARCHAR},
+      web_name = #{record.webName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      `status` = #{record.status,jdbcType=INTEGER},
+      category_id = #{record.categoryId,jdbcType=INTEGER},
+      keyword = #{record.keyword,jdbcType=VARCHAR}
+    <if test="vo !=  null" >
+      <include refid="Update_By_Vo_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_article
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_article
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.platform.core.po.TbArticle" useGeneratedKeys="true" keyProperty="id" >
+    insert into tb_article (title, second_title, date_time, 
+      author, old_url, new_url, 
+      web_name, create_time, update_time, 
+      `status`, category_id, keyword
+      )
+    values (#{title,jdbcType=VARCHAR}, #{secondTitle,jdbcType=VARCHAR}, #{dateTime,jdbcType=TIMESTAMP}, 
+      #{author,jdbcType=VARCHAR}, #{oldUrl,jdbcType=VARCHAR}, #{newUrl,jdbcType=VARCHAR}, 
+      #{webName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, #{keyword,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.platform.core.po.TbArticle" useGeneratedKeys="true" keyProperty="id" >
+    insert into tb_article
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      title,
+      second_title,
+      date_time,
+      author,
+      old_url,
+      new_url,
+      web_name,
+      create_time,
+      update_time,
+      `status`,
+      category_id,
+      keyword,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{title,jdbcType=VARCHAR},
+      #{secondTitle,jdbcType=VARCHAR},
+      #{dateTime,jdbcType=TIMESTAMP},
+      #{author,jdbcType=VARCHAR},
+      #{oldUrl,jdbcType=VARCHAR},
+      #{newUrl,jdbcType=VARCHAR},
+      #{webName,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{updateTime,jdbcType=TIMESTAMP},
+      #{status,jdbcType=INTEGER},
+      #{categoryId,jdbcType=INTEGER},
+      #{keyword,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.platform.core.po.TbArticle" >
+    update tb_article
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="secondTitle != null" >
+        second_title = #{secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="dateTime != null" >
+        date_time = #{dateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="oldUrl != null" >
+        old_url = #{oldUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newUrl != null" >
+        new_url = #{newUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="webName != null" >
+        web_name = #{webName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null" >
+        keyword = #{keyword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.platform.core.po.TbArticle" >
+    update tb_article
+    set title = #{title,jdbcType=VARCHAR},
+      second_title = #{secondTitle,jdbcType=VARCHAR},
+      date_time = #{dateTime,jdbcType=TIMESTAMP},
+      author = #{author,jdbcType=VARCHAR},
+      old_url = #{oldUrl,jdbcType=VARCHAR},
+      new_url = #{newUrl,jdbcType=VARCHAR},
+      web_name = #{webName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      `status` = #{status,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      keyword = #{keyword,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

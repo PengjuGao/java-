@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--配置springmvc需要的所有动作-->
+<!--分析：对于生成一个功能：需要的东西，pom，web，测试类，自身配置-->
+<root>
+    <!--spring mvc 需要的pom配置所在的位置-->
+    <pom>
+        <address type="merge">template/all/springConf/pom/pom.xml</address>
+    </pom>
+    <!--web 中需要配置的文件 -->
+    <web>
+        <address type="merge">template/all/springConf/web/web.xml</address>
+    </web>
+    <!--spring 自身配置文件，所在位置 -->
+    <self>
+        <address type="copy" target="resources/spring">template/all/springConf/self/spring-context.xml</address>
+    </self>
+    <!--java 文件-->
+    <java>
+        <address type="copy" target="com/auto/test">template/all/springConf/java/main/TestController.java</address>
+    </java>
+</root>

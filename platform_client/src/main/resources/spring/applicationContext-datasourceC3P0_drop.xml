@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		">
+    <bean id="newdataSource0" name="newdataSource0" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource0?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource1" name="newdataSource1" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource1?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource2" name="newdataSource2" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource2?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource3" name="newdataSource3" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource3?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource4" name="newdataSource4" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource4?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource5" name="newdataSource5" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource5?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource6" name="newdataSource6" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource6?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource7" name="newdataSource7" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource7?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource8" name="newdataSource8" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource8?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource9" name="newdataSource9" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource9?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource10" name="newdataSource10" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource10?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource11" name="newdataSource11" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource11?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource12" name="newdataSource12" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource12?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource13" name="newdataSource13" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource13?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource14" name="newdataSource14" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource14?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource15" name="newdataSource15" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource15?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource16" name="newdataSource16" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource16?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource17" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource17?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource18" name="newdataSource18" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource18?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+    <bean id="newdataSource19" name="newdataSource19" parent="dataSource123">
+        <property name="jdbcUrl">
+            <value>jdbc:mysql://localhost:3306/dataSource19?useUnicode=true&amp;characterEncoding=utf8</value>
+        </property>
+        <!--MySQL数据库的用户名 -->
+        <property name="user">
+            <value>dropmybatis</value>
+        </property>
+        <!--MySQL数据库 密码 -->
+        <property name="password">
+            <value>dropmybatis</value>
+        </property>
+    </bean>
+</beans>

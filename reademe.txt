@@ -1,0 +1,8 @@
+============自动生成步骤：
+1：建表：必须要有id字段，create_time字段，id设置为主键，递增
+2：生成java代码：通过mybatis自动生成工具生成vo，po，mapper.xml
+3:生成controller，service，dao
+4:修改mapper：执行ReplaceMapperUtils，将mapper修改成统一的格式
+5:执行JSPTemplageUtils,将每个po对应的存放jsp的文件夹生成
+6：重启tomcat
+7：进入页面，模板制作即可

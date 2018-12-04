@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--spring data source 文件配置 -->
+<root>
+    <!--自身配置-->
+    <self>
+        <address type="copy">
+            /add/bac/daata/.xml
+        </address>
+    </self>
+    <!--java 类-->
+    <java>
+        <!-- 正式文件-->
+        <main>
+            <address type="copy">/add/dbdg/cdsd</address>
+        </main>
+        <!--测试文件-->
+        <test>
+            <address type="copy">/add/bcd/dabg</address>
+        </test>
+    </java>
+    <!--pom 文件 -->
+    <pom>
+        <address type="copy">/adgbs/sadfa/adfa</address>
+    </pom>
+</root>

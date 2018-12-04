@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--配置springmvc下的mybatis需要的所有动作-->
+<!--分析：对于生成一个功能：需要的东西，pom，web，测试类，自身配置-->
+<root>
+    <!--spring mvc 需要的pom配置所在的位置-->
+    <pom>
+        <address type="merge">template/all/springMybatis/pom/pom.xml</address>
+    </pom>
+    <!--spring 自身配置文件，所在位置 -->
+    <self>
+        <address type="copy" target="resources/mybatis">template/all/springMybatis/self/mybatis-config.xml</address>
+        <address type="copy" target="resources/spring">template/all/springMybatis/self/applicationContext-mybatis.xml</address>
+        <address type="copy" target="resources/mapper">template/all/springMybatis/self/BookDao.xml</address>
+        <address type="copy" target="resources/spring">template/all/springMybatis/self/applicationContext-datasource.xml</address>
+    </self>
+    <!--java 文件-->
+    <java>
+        <address type="copy" target="com/auto/test/mybatis/po">template/all/springMybatis/java/Book.java</address>
+        <address type="copy" target="com/auto/test/mybatis/dao">template/all/springMybatis/java/BookDAO.java</address>
+        <address type="copy" target="com/auto/test">template/all/springMybatis/java/TestMybatisController.java</address>
+    </java>
+</root>

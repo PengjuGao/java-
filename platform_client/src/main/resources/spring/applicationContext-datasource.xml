@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:aop="http://www.springframework.org/schema/aop"
+	 xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+
+		http://www.springframework.org/schema/tx  
+        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<!--读取配置文件 -->
+	<bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath*:config/*.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="properties" ref="configProperties" />
+	</bean>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<!-- 指定连接数据库的JDBC驱动 -->
+		<property name="driverClass">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<!-- 连接数据库所用的URL -->
+		<property name="jdbcUrl">
+			<value>${jdbcUrl}</value>
+		<!--<value>jdbc:mysql://121.40.130.222:4040/hyl_db?useUnicode=true&amp;characterEncoding=utf8</value>-->
+    </property>
+    <!-- 连接数据库的用户名 -->
+		<property name="user">
+			<value>${jdbcUser}</value>
+		</property>
+		<!-- 连接数据库的密码 -->
+		<property name="password">
+			<value>${jdbcPassword}</value>
+		</property>
+		<!-- 设置数据库连接池的最大连接数 -->
+		<property name="maxPoolSize">
+			<value>200</value>
+		</property>
+		<!-- 设置数据库连接池的最小连接数 -->
+		<property name="minPoolSize">
+			<value>5</value>
+		</property>
+		<!-- 设置数据库连接池的初始化连接数 -->
+		<property name="initialPoolSize">
+			<value>5</value>
+		</property>
+		<!-- 设置数据库连接池的连接的最大空闲时间,单位为秒 -->
+		<property name="maxIdleTime">
+			<value>7200</value>
+		</property>
+
+		<property name="testConnectionOnCheckout" value="true" />
+		<property name="testConnectionOnCheckin" value="true" />
+		<property name="preferredTestQuery" value="SELECT NOW() FROM DUAL" />
+		
+	</bean>
+	<!-- spring管理事务 -->
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- Spring的声明式事务管理 -->
+	<!-- 设置与事务有关的各种属性 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="insert*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="del*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="executeAccounts*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="repairAudit" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="*" read-only="false" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 声明切入点 -->
+	<aop:config>
+		<aop:pointcut id="loginPointCuts"
+			expression="execution(* com.platform.core.service.*.*(..))" />
+
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="loginPointCuts" />
+	</aop:config>
+
+
+</beans>

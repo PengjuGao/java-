@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>Union Tag Library</description>
+	<tlib-version>1.0</tlib-version>
+	<short-name>union</short-name>
+	<uri>union-taglib</uri>
+
+	<tag>
+		<name>pager</name>
+		<tag-class>com.platform.base.common.tags.PagerTag</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>href</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<description>current page id</description>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<description>page size</description>
+			<name>size</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<description>total number</description>
+			<name>total</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+
+		<attribute>
+			<description>page id parameter name,default pageId</description>
+			<name>idParameterName</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>page size parameter name,default pageSize</description>
+			<name>sizeParameterName</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<dynamic-attributes>false</dynamic-attributes>
+	</tag>
+
+    <!--
+    author:benjobs
+    version:1.0.0
+    description:Get the current date is a few days before date.
+    date:2014-03-27 14:06 pm
+    -->
+    <function>
+        <description>Get the current date is a few days before date</description>
+        <name>currDayPrevDay</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String currDayPrevDay(int)</function-signature>
+    </function>
+
+    <function>
+        <description>rep</description>
+        <name>rep</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String rep(java.lang.Object,int,int,java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>sub</description>
+        <name>substr</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String substr(java.lang.Object,int,int)</function-signature>
+    </function>
+
+    <function>
+        <description>sub</description>
+        <name>subwithstr</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String subwithstr(java.lang.Object,int,java.lang.String,int)</function-signature>
+    </function>
+
+
+    <function>
+        <description>subadd</description>
+        <name>subadd</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String substr(java.lang.Object,int,int,java.lang.String)</function-signature>
+    </function>
+
+    <!--
+    version:1.0.0
+    description:Get the current date is a few days before date.
+    params: java.lang.Object:要替换的对象
+           ,java.lang.String:要替换的目标字符串 ,java.lang.String,int,int
+    date:2014-03-27 14:06 pm
+    -->
+    <function>
+        <description>repinx</description>
+        <name>reppos</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String repinx(java.lang.Object,java.lang.String,java.lang.String,int,int)</function-signature>
+    </function>
+    
+ 	<function>
+        <description>getWeek</description>
+        <name>getWeek</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String getWeek(java.lang.String)</function-signature>
+    </function>
+    
+    <function>
+        <description>longtimeToDate</description>
+        <name>longtimeToDate</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String longtimeToDate(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>from_base64</description>
+        <name>from_base64</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String from_base64(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>toMoney</description>
+        <name>toMoney</name>
+        <function-class>com.platform.base.common.tags.PagerTag</function-class>
+        <function-signature>java.lang.String toMoney(java.lang.Double)</function-signature>
+    </function>
+
+</taglib>

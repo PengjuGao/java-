@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base>
+    <dir>
+        <project name="project" value="dir">
+            <src name="src" value="dir">
+                <main name="main" value="dir">
+                    <java name="java" value="dir"></java>
+                    <resource name="resource" value="dir"></resource>
+                    <webapp name="webapp" value="dir">
+                        <web-inf name="WEB-INF" value="dir">
+                            <views name="views" value="dir"></views>
+                            <webxml name="web.xml" value="file"></webxml>
+                        </web-inf>
+                        <index-jsp name="index.jsp" value="file"></index-jsp>
+                    </webapp>
+                </main>
+                <test name="test" value="dir">
+                    <java name="java" value="dir"></java>
+                    <resource name="resource" value="dir"></resource>
+                </test>
+                <pom name="pom.xml" value="file"></pom>
+            </src>
+        </project>
+    </dir>
+</base>

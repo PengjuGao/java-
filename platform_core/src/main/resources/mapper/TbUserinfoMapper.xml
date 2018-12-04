@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.platform.core.dao.TbUserinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.platform.core.po.TbUserinfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="nick" property="nick" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="head_icon" property="headIcon" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, real_name, nick, user_id, phone, email, head_icon, create_time, modify_time
+  </sql>
+  <sql id="Vo_Where_Clause" >
+    <where >
+      <foreach collection="vo.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Vo_Where_Clause" >
+    <where >
+      <foreach collection="vo.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <select id="selectByVo" resultMap="BaseResultMap" parameterType="com.platform.core.vo.TbUserinfoVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_userinfo
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <select id="selectByVoAndPage" resultMap="BaseResultMap" parameterType="com.platform.core.vo.TbUserinfoVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_userinfo
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByVo" parameterType="com.platform.core.vo.TbUserinfoVo" >
+    delete from tb_userinfo
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByVo" parameterType="com.platform.core.vo.TbUserinfoVo" resultType="java.lang.Integer" >
+    select count(*) from tb_userinfo
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByVoSelective" parameterType="map" >
+    update tb_userinfo
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.realName != null" >
+        real_name = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nick != null" >
+        nick = #{record.nick,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.headIcon != null" >
+        head_icon = #{record.headIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null" >
+        modify_time = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="vo !=  null" >
+      <include refid="Update_By_Vo_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByVo" parameterType="map" >
+    update tb_userinfo
+    set id = #{record.id,jdbcType=BIGINT},
+      real_name = #{record.realName,jdbcType=VARCHAR},
+      nick = #{record.nick,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      head_icon = #{record.headIcon,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      modify_time = #{record.modifyTime,jdbcType=TIMESTAMP}
+    <if test="vo !=  null" >
+      <include refid="Update_By_Vo_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_userinfo
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_userinfo
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.platform.core.po.TbUserinfo" useGeneratedKeys="true" keyProperty="id" >
+    insert into tb_userinfo (real_name, nick, user_id, 
+      phone, email, head_icon, 
+      create_time, modify_time)
+    values (#{realName,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{headIcon,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.platform.core.po.TbUserinfo" useGeneratedKeys="true" keyProperty="id" >
+    insert into tb_userinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      real_name,
+      nick,
+      user_id,
+      phone,
+      email,
+      head_icon,
+      create_time,
+      modify_time,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{realName,jdbcType=VARCHAR},
+      #{nick,jdbcType=VARCHAR},
+      #{userId,jdbcType=VARCHAR},
+      #{phone,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR},
+      #{headIcon,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{modifyTime,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.platform.core.po.TbUserinfo" >
+    update tb_userinfo
+    <set >
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        nick = #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="headIcon != null" >
+        head_icon = #{headIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.platform.core.po.TbUserinfo" >
+    update tb_userinfo
+    set real_name = #{realName,jdbcType=VARCHAR},
+      nick = #{nick,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      head_icon = #{headIcon,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

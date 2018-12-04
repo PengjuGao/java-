@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+/*====================代码重置====================*/
+*{ margin:0; padding:0; font-family:"Microsoft YaHei";}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, section, article, aside, header, footer, nav, dialog, figure, hgroup {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+*{border-style:none; outline:none;}
+table {
+	border-collapse: collapse;/*为表格设置合并边框模型*/
+	border-spacing: 0;
+}
+textarea {
+	resize: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+ul, ol, li {
+	list-style: none;
+}
+em, i {
+	font-style: normal;
+}
+img {
+	
+	border-style:none; 
+}
+input, img {
+	vertical-align: middle;
+}
+a {
+	color: #333;
+	text-decoration: none;
+	border: 0;
+	outline: none;
+
+	
+}
+
+input:focus, a:focus {
+	outline: none;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+
+/**********新详情页样式**********/
+.store-btn{width:120px; height: 34px; line-height: 34px; display: inline-block; background: #15a4fa; border-radius: 3px;color:#fff; font-size:14px; text-align: center; border:none;}
+.store-btn:hover{color:#fff; background: #0280e0;}
+.buy-btn{width:118px; height: 32px; line-height: 32px; background: #fff; border:1px solid #15a4fa; color:#15a4fa;}
+.store-btn+.store-btn{ margin-left: 10px; vertical-align: top;}
+.store-btn-disabled{cursor: no-drop; background:#999;}
+.store-btn-disabled:hover{ background:#666;}
+.detail-goods-title{width:800px; height:45px; padding-left:35px; margin: 0; padding-top:30px;font-size: 20px; color:#333; font-weight: bold; border-bottom: 1px solid #dfdfdf;}
+.send-tip{ line-height: 32px; margin-left: 15px;color:#666;}
+.product-view{width:345px; height:387px; border-top: 0; padding: 16px 0px 0px 16px;}
+.img330{width: 330px; height: 330px; overflow: hidden;}
+.img60{width: 60px; height: 60px; overflow: hidden;}
+.spec-items{clear: both;}
+.spec-items ul{width: 345px; height: 62px; overflow: hidden; padding-top:17px; text-align: center;}
+.spec-items .spec-items-current{ border: 1px solid #e21a22;}
+.spec-items li{width: 60px; height: 60px;  float: left; margin-right:7px;}
+.spec-items li a{border: 1px solid #DFDFDF;display: inline-block;}
+.spec-items li a:hover{ border: 1px solid #e21a22;}
+.product-intro{  border: 1px solid #dfdfdf; margin-bottom: 17px;}
+.product-info{width: 834px; padding:1px 0 0 1px; border-left: 1px solid #DFDFDF;}
+.offerdetail_ditto_price{height:85px;width:814px; padding:3px 10px;background: #f9f9f9;border-bottom: 1px solid #DFDFDF;}
+.amount-tab{ height: 85px; border:0;}
+.amount-tab td{height: 30px; line-height: 30px;}
+.amount-tab a:hover{ color:#666;}
+.amount-tab tr:hover{ background: none;}
+.amount td {  border-right: 1px solid #DFDFDF; border-bottom: 0;}
+.price td {border-right: 1px solid #DFDFDF; border-bottom: 0;}
+.product-info .no-bd{ border: none;}
+.amount-title,.price-title{ width:77px; text-align:right;}
+.ladder-3-1{  width: 350px; text-align: center;color:#333; padding-left:20px;border: none;}
+.ladder-3-2{  width: 247px;text-align: center;color:#333;padding-left:20px;}
+.ladder-3-3{width: 247px;text-align: center;color:#333;padding-left:20px;}
+.amount .value{ font-size: 18px;}
+.price-length-4{ font-size: 24px;}
+.price .fd-cny{ font-size: 18px;}
+.u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+/*detail-wrap属性样式*/
+.account-text {border: 1px solid #dddde4;color: #5e5e5e; outline: none; height:20px;line-height:20px;padding: 5px;transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;width: 150px;}
+.product-xn-title{height:30px;padding:20px; font-size: 22px;}
+.attribute-info{ padding-top: 15px; min-height: 257px;}
+.attribute-info .mb-10{ margin-bottom: 10px;}
+.attribute-info .summary-attr{width: 833px;margin:0 0 15px 0;clear: both;display:block; overflow:hidden;}
+.attribute-info .summary-attr dt {width: 86px; height:32px; line-height:32px;float: left; text-align: right;}
+.attribute-info .summary-attr dd {width: 735px;float: right; font-size: 12px;}
+.summary-attr-box {border: 1px solid #f60;padding-top: 20px;width: 832px;overflow: hidden; margin-bottom: 20px;}
+.address-ipt{border:1px solid #d7d7d7;width:76px;padding-left:5px;}
+.sel-default{ height: 30px; line-height: 30px;}
+.summary-attr-a{ padding:7px 25px; border: 1px solid #d7d7d7; display: inline-block; margin-right: 10px; margin-bottom:15px;}
+.summary-attr-a:hover{ border: 1px solid #15a4fa;}
+.sku-box .summary-attr{ margin:0;}
+.attribute-info .summary-attr-tips{ margin-left: 50px; color:#f60;}
+.selected{ border: 1px solid #15a4fa;background: url(/static/img/right_dit.png) no-repeat right bottom;}
+.disabled{border: 1px dashed #d7d7d7;cursor: no-drop;}
+.quantity-form {position: relative;/*overflow: hidden;*/height: 30px;width: 115px; float: left;}
+.prompt{position:absolute; bottom:-22px; left:15px;}
+.decrement,.increment{border: 1px solid #cacbcb;border-right: 0;height: 26px;line-height: 26px;padding: 1px 0;width: 25px;text-align: center;color: #ccc;margin: 0;background: #fafafa;float:left;font-size:22px;}
+.itxt{position: absolute;left: 25px;top: 0;border: 1px solid #cacbcb;width: 60px;height: 26px;line-height: 26px;text-align: center;padding: 1px;margin: 0;font-size: 12px;font-family: verdana;color: #333;-webkit-appearance: none;}
+.increment{float: right;border: 1px solid #cacbcb;border-left: 0;color: #ccc;}
+.quota-tips{ line-height: 28px; margin-left: 10px;}
+.summary-tips{font-size: 12px; margin-bottom: 10px; margin-top:5px;}
+.summary-tips span.red{color:#e21a22;}
+.summary-tips span{ margin-right: 25px; color:#666;}
+.summary-tips .summary-tips-em{width: 16px;height: 16px; margin-right:4px;text-align: center;line-height: 16px;border-radius: 2px;display: inline-block;color: #fff; background: #15a4fa;}
+.formQuota {border-bottom: none;}
+.formQuota a{border-color:#fece99; background: #fff5ea; color: #fb6022; border-bottom: none;}
+.formQuota input{border-color:#fece99;border-bottom: none; }
+.goodsQuota{width: 113px; height: 27px; line-height: 27px; text-align: center; background: #fff5ea; margin-top: 29px;border:1px solid #fece99;}
+.goodsQuotaTwo{width: 113px; height: 27px; line-height: 27px; text-align: center;color:red;}
+
+
+
+
+
+
+
+
+
+
+
+

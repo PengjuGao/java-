@@ -1,0 +1,1 @@
+存放Structs2.0 + hibernate 的配置

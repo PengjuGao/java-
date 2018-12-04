@@ -1,0 +1,1 @@
+file.resource.loader.class=org.apache.velocity.tools.view.WebappResourceLoader

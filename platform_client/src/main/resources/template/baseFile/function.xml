@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!--拷贝解析文件并重命名-->
+    <address type="copy" target="template/common">template/common/spring_conf.xml</address>
+    <!--创建功能资源文件夹-->
+    <address type="create" target="template/all">java;pom;self;web;</address>
+</root>

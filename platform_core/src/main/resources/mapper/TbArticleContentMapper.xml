@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.platform.core.dao.TbArticleContentMapper" >
+  <resultMap id="BaseResultMap" type="com.platform.core.po.TbArticleContent" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="article_id" property="articleId" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.platform.core.po.TbArticleContent" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, article_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <sql id="Vo_Where_Clause" >
+    <where >
+      <foreach collection="vo.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Vo_Where_Clause" >
+    <where >
+      <foreach collection="vo.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <select id="selectByVoWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.platform.core.vo.TbArticleContentVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_article_content
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <select id="selectByVo" resultMap="BaseResultMap" parameterType="com.platform.core.vo.TbArticleContentVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_article_content
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <select id="selectByVoWithBLOBsAndPage" resultMap="ResultMapWithBLOBs" parameterType="com.platform.core.vo.TbArticleContentVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_article_content
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <select id="selectByVoAndPage" resultMap="BaseResultMap" parameterType="com.platform.core.vo.TbArticleContentVo" >
+    select
+    <if test="vo !=  null and vo.distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_article_content
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+    <if test="vo !=  null and vo.orderByClause != null" >
+      order by ${vo.orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByVo" parameterType="com.platform.core.vo.TbArticleContentVo" >
+    delete from tb_article_content
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByVo" parameterType="com.platform.core.vo.TbArticleContentVo" resultType="java.lang.Integer" >
+    select count(*) from tb_article_content
+    <if test="vo !=  null" >
+      <include refid="Vo_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByVoSelective" parameterType="map" >
+    update tb_article_content
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleId != null" >
+        article_id = #{record.articleId,jdbcType=BIGINT},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="vo !=  null" >
+      <include refid="Update_By_Vo_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByVoWithBLOBs" parameterType="map" >
+    update tb_article_content
+    set id = #{record.id,jdbcType=INTEGER},
+      article_id = #{record.articleId,jdbcType=BIGINT},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="vo !=  null" >
+      <include refid="Update_By_Vo_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByVo" parameterType="map" >
+    update tb_article_content
+    set id = #{record.id,jdbcType=INTEGER},
+      article_id = #{record.articleId,jdbcType=BIGINT}
+    <if test="vo !=  null" >
+      <include refid="Update_By_Vo_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_article_content
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_article_content
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.platform.core.po.TbArticleContent" useGeneratedKeys="true" keyProperty="id" >
+    insert into tb_article_content (article_id, content)
+    values (#{articleId,jdbcType=BIGINT}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.platform.core.po.TbArticleContent" useGeneratedKeys="true" keyProperty="id" >
+    insert into tb_article_content
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      article_id,
+      content,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{articleId,jdbcType=BIGINT},
+      #{content,jdbcType=LONGVARCHAR},
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.platform.core.po.TbArticleContent" >
+    update tb_article_content
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.platform.core.po.TbArticleContent" >
+    update tb_article_content
+    set article_id = #{articleId,jdbcType=BIGINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.platform.core.po.TbArticleContent" >
+    update tb_article_content
+    set article_id = #{articleId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,118 @@
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="js/jquery.min.203.js"></script>
+        <script type="text/javascript" src="js/bootstap.min.334.js"></script>
+        <link href="css/font-awesome.min.430.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/blue2.css">
+        <link rel="stylesheet" type="text/css" href="css/magic-check.css">
+</head>
+<body>
+<div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+                <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><span>Mybatis 映射生成</span></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                        <a href="#">框架生成</a>
+                                </li>
+                                <li>
+                                        <a href="#">代码生成</a>
+                                </li>
+                                <li>
+                                        <a href="#">每日好文</a>
+                                </li>
+                                <li>
+                                        <a href="#">赚外快</a>
+                                </li>
+                                <li>
+                                        <a href="#">反馈</a>
+                                </li>
+                                <li>
+                                        <a href="#">装机U盘</a>
+                                </li>
+                                <li>
+                                        <a href="#">世界</a>
+                                </li>
+                                <li>
+                                        <a href="#">登陆</a>
+                                </li>
+                        </ul>
+                </div>
+        </div>
+</div>
+<div class="section">
+        <div class="container">
+                <div class="row">
+                        <div class="col-md-12">
+                                <hr>
+                        </div>
+                </div>
+        </div>
+</div>
+
+<div class="section">
+        <div class="container">
+                <div class="col-md-12"><h1 class="text-center">JAVA 框架生成</h1>
+                        <p class="text-center">免费为您，一键打造</p>
+                </div>
+
+        </div>
+</div>
+<div class="section">
+        <div class="container">
+                <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                                <div class="panel panel-primary">
+                                        <div class="panel-heading"><h3 class="panel-title">Mybatis映射生成</h3></div>
+                                        <div class="panel-body">
+                                                <form class="form-horizontal" role="form" method="post" action="/platform/feedback/doFeedback">
+                                                        <input type="hidden" name="token" value="${token}"/>
+                                                        <div>mybatis自动生成映射文件功能在线版，生成的文件有controller,service,dao,po(数据表对应的破类),example(mybatis自动生成的类),mapper.xml
+                                                                为了方便您直接生成文件之后无需修改就可拷贝到项目中，请填写上面生成类对应的包名。如果觉得生成的Example(如：TbuserExample这样的名称不好看，可以通过修改
+                                                                example后缀，同样如果不想看到mapper.xml中example字样，
+                                                                也可以自定义自己想要的后缀，比如说(TbuserVo)，mapper.xml中example替换会引起service,及dao方法名称的改变</div>
+                                                        <div class="row">
+                                                                <div class="col-md-6">
+                                                                        <h3>数据表创建sql语句</h3>
+                                                                        <div>
+                                                                                <textarea style="margin: 0px; width: 429px; height: 374px;"></textarea>
+                                                                        </div>
+                                                                        </div>
+                                                                <div class="col-md-6">
+                                                                        <h3>对应包名</h3>
+                                                                        <div class="form-group"><div class="col-sm-4"><label for="inputEmail31" class="control-label">Controller 包名</label></div><div class="col-sm-8"><input type="email" class="form-control" id="inputEmail31" placeholder="默认:com.javacoder.top.controller"></div></div>
+                                                                        <div class="form-group"><div class="col-sm-4"><label for="inputEmail32" class="control-label">Service 包名</label></div><div class="col-sm-8"><input type="email" class="form-control" id="inputEmail32" placeholder="默认:com.javacoder.top.service"></div></div>
+                                                                        <div class="form-group"><div class="col-sm-4"><label for="inputEmail33" class="control-label">Dao 包名</label></div><div class="col-sm-8"><input type="email" class="form-control" id="inputEmail33" placeholder="默认:com.javacoder.top.dao"></div></div>
+                                                                        <div class="form-group"><div class="col-sm-4"><label for="inputEmail34" class="control-label">PO 包名</label></div><div class="col-sm-8"><input type="email" class="form-control" id="inputEmail34" placeholder="默认:com.javacoder.top.po"></div></div>
+                                                                        <div class="form-group"><div class="col-sm-4"><label for="inputEmail35" class="control-label">Example 包名</label></div><div class="col-sm-8"><input type="email" class="form-control" id="inputEmail35" placeholder="默认:com.javacoder.top.po"></div></div>
+                                                                        <div class="form-group"><div class="col-sm-4"><label for="inputEmail36" class="control-label">Example 后缀</label></div><div class="col-sm-8"><input type="email" class="form-control" id="inputEmail36" placeholder="默认:Example"></div></div>
+                                                                        <div class="form-group"><div class="col-sm-4"><label for="inputEmail37" class="control-label">xml中替换Example</label></div><div class="col-sm-8"><input type="email" class="form-control" id="inputEmail37" placeholder="默认:Example"></div></div>
+                                                                </div>
+
+                                                        </div>
+                                                        <br>
+                                                        <button type="submit" class="btn btn-block btn-primary">立即生成</button>
+                                                </form>
+                                                <blockquote><p>感谢您的使用</p>
+                                                        <footer>如有问题请反馈给我们</footer>
+                                                </blockquote>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                </div>
+        </div>
+</div>
+</body>
+</html>

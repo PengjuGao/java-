@@ -1,0 +1,123 @@
+package com.platform.base.common.classTemplate;
+
+import java.io.*;
+
+public class FileUtils {
+
+
+	/**
+	 * ??????????????????????
+	 * @param filePath
+	 * @return
+	 */
+	public static String getFileContent(String filePath,String charSet){
+
+		StringBuffer buffer = new StringBuffer();
+
+		Reader reader = null;
+
+		try {
+			reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath),charSet)); 
+
+			char[] tempArr = new char[1024];;
+
+			int num = 0;
+
+			while((num = reader.read(tempArr)) != -1){
+
+				buffer.append(tempArr,0,num);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			
+			if(null != reader){
+				try {
+					reader.close();
+				} catch (IOException e) {
+					System.err.println("-----------????????????");
+					e.printStackTrace();
+				}
+			}
+			
+		}
+
+		return buffer.toString();
+	}
+	
+	
+	/**
+	 * ???????
+	 * @param filePath
+	 * @param content
+	 */
+	public static void makeFile(String filePath,String content,String charSet,boolean flag){
+		
+		File tempFile = new File(filePath);
+		
+		if(tempFile.exists() && !flag){
+			return;
+		}
+
+		Writer writer = null;
+		
+		//?ж?????????
+		File parentFile = tempFile.getParentFile();
+		
+		if(!parentFile.exists()){
+			
+			parentFile.mkdirs();
+			
+		}
+		
+		
+		if(tempFile.exists() && !flag){
+			//???????
+		}else{
+			try {
+				//????FILE
+				tempFile.createNewFile();
+				//д?????file
+				writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(tempFile), charSet));
+
+				writer.write(content.toCharArray());
+
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally{
+				if(null !=  writer){
+					try {
+						writer.flush();
+						writer.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * ?????????
+	 * @param path
+	 * @param name
+     * @return
+     */
+	public static String creatdir(String path, String name) {
+
+		return path;
+	}
+
+	/**
+	 * ???????
+	 * @param path
+	 * @param name
+     * @return
+     */
+	public static String createFile(String path, String name) {
+
+		return path;
+	}
+}

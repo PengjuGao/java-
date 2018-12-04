@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="realm" ref="myRealm" />
+	</bean>
+
+	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="ehCacheManager" />
+	</bean>
+
+	<bean id="myRealm" class="com.platform.base.common.shiro.MyShiroRealm"/>
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/platform/login/goToLogin" />
+		<property name="successUrl" value="/login_bootstrap.jsp" />
+		<property name="unauthorizedUrl" value="/login_bootstrap.jsp" />
+
+		<property name="filterChainDefinitions">
+			<value>
+				# some example chain definitions:
+				#/** = anon
+				/test/** = authc
+				/**/test = authc
+				# more URL-to-FilterChain definitions here
+				/platform/login/** = anon
+				/platform/email/** = anon
+				/platform/register/** = anon
+				/platform/alterPassword/loginAlterPassword = authc
+				/platform/alterPassword/unloginAlterPassword = anon
+				/platform/framework/doMakeFramework = authc
+				/platform/framework/gotoMakePage = anon
+				/platform/makeMoney/gotoMakeMoneyPage = anon
+				/platform/user/** = authc
+				/platform/home/** = anon
+			</value>
+		</property>
+	</bean>
+</beans>
